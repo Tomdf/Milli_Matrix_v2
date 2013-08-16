@@ -1,0 +1,15 @@
+22/07/13
+Used an AVR Pocket Programmer
+
+Screwed around with the fusebits and lockbits but I'm not sure if it was neccesary
+
+In order to program the bootloader using the arduino IDE I had to first 
+rename the file "Caterina-promicro16.hex" to "Caterina-promicro16_2.hex" so that I could copy
+"Caterina-promicro8.hex" and rename it "Caterina-promicro16.hex"
+
+These files were all located in
+D:\My Documents\Work\Electronics\MicroControllers\Arduino\arduino-1.0.3\hardware\SF32u4_boards-master\bootloaders\caterina
+
+I could then select the Pro Micro 5V from the Board menu, but it is really the 3.3v 8Mhz version's file, and burn the bootloader.
+
+This worked and I was then able to upload sketches to the IC.
