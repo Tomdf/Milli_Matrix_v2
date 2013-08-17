@@ -1,3 +1,24 @@
+16/08/13
+Known Good Config
+Hardware: AVR Pocket Programmer
+Software: Arduino IDE
+
+To program the bootloader using the Arduino IDE first navigate to the folder
+\Arduino\arduino-1.0.3\hardware\SF32u4_boards-master\bootloaders\caterina
+
+Rename the file "Caterina-promicro16.hex" to "Caterina-promicro16_2.hex", then copy
+"Caterina-promicro8.hex" and rename it "Caterina-promicro16.hex". This tricks the IDE
+somehow, although I'm not exactly sure how.
+
+Select "Sparkfun Pro Micro 5V/16MHz under Tools>Board (Remember that this actually the 8MHz loader,
+	tricked the IDE). The Pro Micro files are available from Sparkfun's site.
+Select "USBtinyISP" under Tools>Programmer>
+Select "Burn Bootloader" under the Tools menu.
+If all goes well, the programming will take about 30-45 seconds before giving the message
+"Done Uploading". You are now, ... wait for it,.. done uploading.
+
+****************************************************************************************
+
 22/07/13
 Used an AVR Pocket Programmer
 
@@ -13,3 +34,5 @@ D:\My Documents\Work\Electronics\MicroControllers\Arduino\arduino-1.0.3\hardware
 I could then select the Pro Micro 5V from the Board menu, but it is really the 3.3v 8Mhz version's file, and burn the bootloader.
 
 This worked and I was then able to upload sketches to the IC.
+
+avrdude -c usbtiny -p -
