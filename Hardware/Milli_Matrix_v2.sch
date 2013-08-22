@@ -6702,6 +6702,12 @@ will be further integrated into the Sparkfun Library for other footprints.  It c
 </package>
 <package name="FIDUCIAL-1X2">
 <smd name="1" x="0" y="0" dx="1" dy="1" layer="1" roundness="100" cream="no"/>
+<polygon width="0.127" layer="1">
+<vertex x="-0.635" y="0" curve="-90"/>
+<vertex x="0" y="0.635" curve="-90"/>
+<vertex x="0.635" y="0" curve="-90"/>
+<vertex x="0" y="-0.635" curve="-90"/>
+</polygon>
 </package>
 <package name="FIDUCIAL-1X2.5">
 <circle x="0" y="0" radius="0.9" width="1.27" layer="29"/>
@@ -11742,8 +11748,8 @@ DIN A3, landscape with location and doc. field</description>
 <part name="JP20" library="SparkFun-Connectors" deviceset="M03X2" device="2X3_SILK_SM"/>
 <part name="GND9" library="SparkFun" deviceset="GND" device=""/>
 <part name="P+9" library="SparkFun" deviceset="3.3V" device="" value="VCC"/>
-<part name="JP6" library="SparkFun" deviceset="FIDUCIAL" device="1.5X3"/>
-<part name="JP7" library="SparkFun" deviceset="FIDUCIAL" device="1.5X3"/>
+<part name="JP6" library="SparkFun" deviceset="FIDUCIAL" device="1X2"/>
+<part name="JP7" library="SparkFun" deviceset="FIDUCIAL" device="1X2"/>
 <part name="FRAME1" library="frames" deviceset="A3L-LOC" device=""/>
 </parts>
 <sheets>
