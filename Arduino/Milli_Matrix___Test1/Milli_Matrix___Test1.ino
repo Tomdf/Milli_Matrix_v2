@@ -1,7 +1,7 @@
 
 const int modeButton = 0;
 
-int refreshSpeed = 50;
+int refreshSpeed = 10;
 
 // pin[xx] on led matrix connected to nn on Arduino (-1 is dummy to make array start at pos 1)
 int pins[17]= {-1, 7, 17, 15, 16, 14, 11, 3, 2, 4, 12, 6, 8, 9, 10, 5, 13};
@@ -36,10 +36,10 @@ void loop(){
     for (int j = 0; j < 8; j++) {
       if (digitalRead(modeButton) == HIGH) {
         refreshSpeed += 1000;
-        if (refreshSpeed >= 15050) {
-          refreshSpeed = 50;
+        if (refreshSpeed >= 15010) {
+          refreshSpeed = 10;
         }
-        delay(100);
+        delay(50);
       }
       digitalWrite(rows[j], LOW);
       delayMicroseconds(refreshSpeed);

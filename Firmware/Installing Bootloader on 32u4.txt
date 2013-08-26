@@ -1,3 +1,26 @@
+How to Burn the Bootloader to the milliMATRIX v2
+8/25/13
+
+Hardware: AVR Pocket Programmer
+Software: Arduino IDE
+
+1. Navigate to the folder: "\Arduino\arduino-1.0.3\hardware\SF32u4_boards-master\bootloaders\caterina"
+
+2. Rename the file "Caterina-promicro16.hex" to "Caterina-promicro16_2.hex"
+
+3. copy "Caterina-promicro8.hex" and rename it "Caterina-promicro16.hex"
+
+4. In the Arduino IDE Select "Sparkfun Pro Micro 5V/16MHz under Tools>Board
+	(The Pro Micro files are available from the Sparkfun's website.)
+
+5. Select "USBtinyISP" under Tools>Programmer>
+
+6. Select "Burn Bootloader" under the Tools menu
+
+7. Complete = The programming will take about 30-45 seconds before giving the message "Done Uploading"
+
+****************************************************************************************
+
 16/08/13
 Known Good Config
 Hardware: AVR Pocket Programmer
@@ -7,8 +30,8 @@ To program the bootloader using the Arduino IDE first navigate to the folder
 \Arduino\arduino-1.0.3\hardware\SF32u4_boards-master\bootloaders\caterina
 
 Rename the file "Caterina-promicro16.hex" to "Caterina-promicro16_2.hex", then copy
-"Caterina-promicro8.hex" and rename it "Caterina-promicro16.hex". This tricks the IDE
-somehow, although I'm not exactly sure how.
+"Caterina-promicro8.hex" and rename it "Caterina-promicro16.hex". This tricks the IDE,
+ although I'm not exactly sure how.
 
 Select "Sparkfun Pro Micro 5V/16MHz under Tools>Board (Remember that this actually the 8MHz loader,
 	tricked the IDE). The Pro Micro files are available from Sparkfun's site.
