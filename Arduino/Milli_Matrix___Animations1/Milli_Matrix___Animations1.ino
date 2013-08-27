@@ -49,27 +49,22 @@ void setup() {
 void loop() {
   if (digitalRead(modeButton) == HIGH) {
     mode++;
-    if (mode > 3) {
+    if (mode > 2) {
       mode = 0;
     }
     frameCount = 0;
     delay(150);
   }
   
-  if (mode == 0){
-    randSkulls();
-  }
-  else if (mode == 1) {
+  else if (mode == 0) {
     nomnomSkull();
   }
-  else if (mode == 2) {
+  else if (mode == 1) {
     spaceInvader1();
-  }
-  
-  else if (mode == 3) {
+  }  
+  else if (mode == 2) {
     spaceInvader2();
-  }
-  
+  }  
   refreshFrame();
 }
 
@@ -79,13 +74,13 @@ void refreshFrame() {
     for (int j = 0; j < 8; j++) {    // loop to scan thru rows
       if (pattern[patternCount][i][j] == 1) {    // reference the predefined pattern
         digitalWrite(rows[j], LOW);    // enable row 'j'. turn on the LED at column 'i' and row 'j'
-        delayMicroseconds(100);         // leave the LED on for 10 microseconds
+        delayMicroseconds(50);         // leave the LED on for 100 microseconds
         digitalWrite(rows[j], HIGH);   // turn the LED off
       } 
-/*      else {
-        delayMicroseconds(1);
+      else {
+        delayMicroseconds(50);
       }
-*/      
+     
     }
     digitalWrite(cols[i], LOW);
   }
@@ -96,10 +91,10 @@ void nomnomSkull() {
   if (frameCount == 1) {
     patternCount = 2;
   }
-  else if (frameCount == 100) {
+  else if (frameCount == 300) {
     patternCount = 3;
   }
-  else if (frameCount == 200) {
+  else if (frameCount == 500) {
     patternCount = 2;
     frameCount = 0;
   }
@@ -110,10 +105,10 @@ void spaceInvader1() {
   if (frameCount == 1) {
     patternCount = 11;
   }
-  if (frameCount == 100) {
+  if (frameCount == 300) {
     patternCount = 10;
   }
-  if (frameCount == 200) {
+  if (frameCount == 500) {
     patternCount = 11;
     frameCount = 0;
   }
@@ -124,27 +119,14 @@ void spaceInvader2() {
   if (frameCount == 1) {
     patternCount = 12;
   }
-  if (frameCount == 100) {
+  if (frameCount == 300) {
     patternCount = 13;
   }
-  if (frameCount == 200) {
+  if (frameCount == 500) {
     patternCount = 12;
     frameCount = 0;
   }
 }
 
-void randSkulls() {
-  ++frameCount;
-  if (frameCount == 1) {
-      patternCount = 0;
-  }
-  else if (frameCount == 700) {
-      randPattern = random(10);
-      patternCount = randPattern;
-    }
-  else if (frameCount == 900) {
-    patternCount = 0;
-    frameCount = 0;
-  }
-}
+
 
