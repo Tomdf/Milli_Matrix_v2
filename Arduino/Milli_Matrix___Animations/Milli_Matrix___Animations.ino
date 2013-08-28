@@ -22,10 +22,10 @@ byte col = 0;
 byte row = 0;
 byte mode = 0;
 byte randPattern;
-byte pattern[14][8][8] = {MRSKULL0, MRSKULL1, MRSKULL2, MRSKULL3, 
+byte pattern[16][8][8] = {MRSKULL0, MRSKULL1, MRSKULL2, MRSKULL3, 
                           MRSKULL4, MRSKULL5, MRSKULL6, MRSKULL7,
                           MRSKULL8, MRSKULL9, INVADER0, INVADER1,
-                          INVADER2, INVADER3};
+                          INVADER2, INVADER3, SFFLAME0, SFFLAME1};
 
 void setup() {
   // set the mode select button pin as an input
@@ -49,22 +49,26 @@ void setup() {
 void loop() {
   if (digitalRead(modeButton) == HIGH) {
     mode++;
-    if (mode > 2) {
+    if (mode > 3) {
       mode = 0;
     }
     frameCount = 0;
     delay(150);
   }
   
-  else if (mode == 0) {
+  if (mode == 0) {
     nomnomSkull();
   }
-  else if (mode == 1) {
+  if (mode == 1) {
     spaceInvader1();
   }  
-  else if (mode == 2) {
+  if (mode == 2) {
     spaceInvader2();
-  }  
+  }
+  if (mode == 3) {
+    sfFLAME();
+  } 
+  
   refreshFrame();
 }
 
@@ -74,11 +78,11 @@ void refreshFrame() {
     for (int j = 0; j < 8; j++) {    // loop to scan thru rows
       if (pattern[patternCount][i][j] == 1) {    // reference the predefined pattern
         digitalWrite(rows[j], LOW);    // enable row 'j'. turn on the LED at column 'i' and row 'j'
-        delayMicroseconds(50);         // leave the LED on for 100 microseconds
+        delayMicroseconds(150);         // leave the LED on for 100 microseconds
         digitalWrite(rows[j], HIGH);   // turn the LED off
       } 
       else {
-        delayMicroseconds(50);
+        delayMicroseconds(10);
       }
      
     }
@@ -126,6 +130,10 @@ void spaceInvader2() {
     patternCount = 12;
     frameCount = 0;
   }
+}
+
+void sfFLAME() {
+  patternCount = 14;
 }
 
 
