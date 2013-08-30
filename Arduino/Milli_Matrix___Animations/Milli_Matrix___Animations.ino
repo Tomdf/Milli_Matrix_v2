@@ -22,10 +22,10 @@ byte col = 0;
 byte row = 0;
 byte mode = 0;
 byte randPattern;
-byte pattern[16][8][8] = {MRSKULL0, MRSKULL1, MRSKULL2, MRSKULL3, 
+byte pattern[15][8][8] = {MRSKULL0, MRSKULL1, MRSKULL2, MRSKULL3, 
                           MRSKULL4, MRSKULL5, MRSKULL6, MRSKULL7,
                           MRSKULL8, MRSKULL9, INVADER0, INVADER1,
-                          INVADER2, INVADER3, SFFLAME0, SFFLAME1};
+                          INVADER2, INVADER3, SFFLAME};
 
 void setup() {
   // set the mode select button pin as an input
