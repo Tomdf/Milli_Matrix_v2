@@ -22,10 +22,11 @@ byte col = 0;
 byte row = 0;
 byte mode = 0;
 byte randPattern;
-byte pattern[15][8][8] = {MRSKULL0, MRSKULL1, MRSKULL2, MRSKULL3, 
+byte pattern[18][8][8] = {MRSKULL0, MRSKULL1, MRSKULL2, MRSKULL3, 
                           MRSKULL4, MRSKULL5, MRSKULL6, MRSKULL7,
                           MRSKULL8, MRSKULL9, INVADER0, INVADER1,
-                          INVADER2, INVADER3, SFFLAME};
+                          INVADER2, INVADER3, SFFLAME, HEART0, 
+                          HEART1, HEART2};
 
 void setup() {
   // set the mode select button pin as an input
@@ -49,7 +50,7 @@ void setup() {
 void loop() {
   if (digitalRead(modeButton) == HIGH) {
     mode++;
-    if (mode > 3) {
+    if (mode > 5) {
       mode = 0;
     }
     frameCount = 0;
@@ -67,7 +68,13 @@ void loop() {
   }
   if (mode == 3) {
     sfFLAME();
-  } 
+  }   
+  if (mode == 4) {
+    smoke();
+  }
+  if (mode == 5) {
+    heart();
+  }
   
   refreshFrame();
 }
@@ -136,5 +143,51 @@ void sfFLAME() {
   patternCount = 14;
 }
 
+void smoke() {
+  ++frameCount;
+  if (frameCount == 1) {
+    patternCount = 0;
+  }
+  else if (frameCount == 300) {
+    patternCount = 8;
+  }
+  else if (frameCount == 500) {
+    patternCount = 9;
+  }
+  else if (frameCount == 700) {
+    patternCount = 6;
+  }
+  else if (frameCount == 1100) {
+    patternCount = 7;
+  }
+  else if (frameCount == 1300) {
+    patternCount = 1;
+  }
+  else if (frameCount == 1500) {
+    patternCount = 5;
+  }
+  else if (frameCount == 1700) {
+    patternCount = 0;
+    frameCount = 0;
+  }
+}
 
-
+void heart() {
+  ++frameCount;
+  if (frameCount == 1) {
+    patternCount = 15;
+  }
+  else if (frameCount == 300) {
+    patternCount = 16;
+  }
+  else if (frameCount == 320) {
+    patternCount = 17;
+  }
+  else if (frameCount == 340) {
+    patternCount = 16;
+  }
+  else if (frameCount == 360) {
+    patternCount = 15;
+    frameCount = 0;
+  }
+}
